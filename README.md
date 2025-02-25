@@ -1,8 +1,5 @@
-# React + Vite
+# Template for responsive blog-like webpages
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Create your components inside /src/components/mainElements, add them to index.js in/src/components/mainElements and add them to the list in /src/components/blog.jsx
+### **Important**
+The path in blog file must have the same value as the id of the element it points to in mainElelements folder 

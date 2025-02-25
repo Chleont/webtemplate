@@ -1,61 +1,20 @@
-import {
-    Card,
-    List,
-    ListItem,
-    ListItemPrefix,
-    ListItemSuffix,
-    Chip,
-} from "@material-tailwind/react";
-import {
-    PresentationChartBarIcon,
-    ShoppingBagIcon,
-    UserCircleIcon,
-    Cog6ToothIcon,
-    InboxIcon,
-    PowerIcon,
-} from "@heroicons/react/24/solid";
+import { Card } from "@material-tailwind/react";
+import { blogElements } from "./blog";
 
 export function Sidebar() {
+    function goTo(path) {
+        const targetElement = document.getElementById(path);
+        if (targetElement) {
+            targetElement.scrollIntoView({ behavior: "smooth" });
+        }
+    }
     return (
-        <Card className="w-full shadow-none mb-auto">
-            <List>
-                <ListItem>
-                    <ListItemPrefix>
-                        <PresentationChartBarIcon className="h-5 w-5" />
-                    </ListItemPrefix>
-                    Dashboard
-                </ListItem>
-                <ListItem>
-                    <ListItemPrefix>
-                        <ShoppingBagIcon className="h-5 w-5" />
-                    </ListItemPrefix>
-                    E-Commerce
-                </ListItem>
-                <ListItem>
-                    <ListItemPrefix>
-                        <InboxIcon className="h-5 w-5" />
-                    </ListItemPrefix>
-                    Inbox
-                </ListItem>
-                <ListItem>
-                    <ListItemPrefix>
-                        <UserCircleIcon className="h-5 w-5" />
-                    </ListItemPrefix>
-                    Profile
-                </ListItem>
-                <ListItem>
-                    <ListItemPrefix>
-                        <Cog6ToothIcon className="h-5 w-5" />
-                    </ListItemPrefix>
-                    Settings
-                </ListItem>
-                <ListItem>
-                    <ListItemPrefix>
-                        <PowerIcon className="h-5 w-5" />
-                    </ListItemPrefix>
-                    Log Out
-                </ListItem>
-            </List>
+        <Card className="w-full h-fit shadow-none mb-auto rounded-none overflow-hidden">
+            <div className="w-full p-2">
+                {blogElements.map(each =>
+                    <div key={each.path} className="w-full px-2 cursor-pointer my-3" onClick={() => { goTo(each.path); }}>{each.name}</div>
+                )}
+            </div>
         </Card>
     );
 }

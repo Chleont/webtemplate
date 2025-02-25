@@ -1,12 +1,11 @@
-import { Button } from '@material-tailwind/react';
 import { useTranslation } from 'react-i18next';
+import { Blog } from './components/blog';
 
 function App() {
     const { t } = useTranslation();
+
     return (
-        <>
-            <Button>{t('Hello')}</Button>
-        </>
+        <Blog />
     );
 }
 
