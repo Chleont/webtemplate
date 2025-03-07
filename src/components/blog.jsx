@@ -1,4 +1,5 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
+import { render } from '/src/context';
 import { Home, Sec } from './mainElements';
 
 //name should change regarding the locale, path is used only for navigation
@@ -6,16 +7,18 @@ export const blogElements = [
     {
         name: 'home',
         path: 'home',
-        element: <Home />
+        element: <Home key={'home'} />
     },
     {
         name: 'sec',
         path: 'sec',
-        element: <Sec />
+        element: <Sec key={'sec'} />
     }
 ];
 
 export function Blog() {
+    const mobileContext = useContext(render);
+
     useEffect(() => {
 
         const observerOptions = {
@@ -44,7 +47,7 @@ export function Blog() {
         const urlParams = new URLSearchParams(window.location.search);
         const sectionFromUrl = urlParams.get("section");
         if (sectionFromUrl) {
-            const targetElement = document.getElementById(sectionFromUrl);
+            const targetElement = mobileContext.isMobile && sectionFromUrl == 'home' ? document.getElementById('mobile-navbar') : document.getElementById(sectionFromUrl);
             if (targetElement) {
                 targetElement.scrollIntoView({ behavior: "smooth" });
             }

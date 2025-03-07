@@ -1,20 +1,20 @@
-import React, { useContext } from 'react';
-import { render } from '/src/context';
+import React from 'react';
+import { Section } from '../blogSections';
 import Background from '/src/images/home-bg.png';
 
 export function Sec() {
-    const mobile = useContext(render).isMobile;
-    const headerHeight = useContext(render).headerHeight;
     return (
-        <div key='sec' id='sec' style={{
-            backgroundImage: 'url(' + Background + ')',
-            backgroundRepeat: 'no-repeat',
-            backgroundSize: '80%',
-            backgroundPosition: 'center 5vh',
-            height: mobile ? window.innerHeight - headerHeight + 'px' : window.innerHeight + 'px'
-        }} className='w-full bg-red-200'>
-            asdasdadsadsada
-        </div>
+        <Section>
+            <div style={{
+                backgroundImage: 'url(' + Background + ')',
+                backgroundRepeat: 'no-repeat',
+                backgroundSize: '80%',
+                backgroundPosition: 'center 5vh'
+            }}
+                className='h-full w-full bg-red-200'>
+                asdasdasdasdasdas
+            </div>
+        </Section>
     );
 }
 export default Sec;
